@@ -12,7 +12,8 @@ module.exports = merge(common, {
     pathinfo: true,
     filename: 'js/[name].js',
     chunkFilename: 'js/[name].chunk.js',
-    path: path.resolve(__dirname, 'build')
+    path: path.resolve(__dirname, 'build'),
+    // publicPath: '//static2.test.ximalaya.com/source/share-buy/0.1./build/'
   },
   module: {
     rules: [
@@ -77,7 +78,9 @@ module.exports = merge(common, {
   plugins: [
     new CleanWebpackPlugin(['build']),
     new UglifyJSPlugin(),
-    new ExtractTextPlugin('css/[name].css'),
-    new CopyWebpackPlugin([{ from: 'src/image', to: 'image' }])
+    // new ExtractTextPlugin('css/[name].css'),
+    new ExtractTextPlugin('css/common.css'),//样式文件打包到common.css中
+    // new CopyWebpackPlugin([{ from: 'src/image', to: 'image' }]),
+    new CopyWebpackPlugin([{ from: 'src/lib', to: 'lib' }])
   ]
 });

@@ -1,4 +1,3 @@
-import html2canvas from 'html2canvas';
 ; (function (window) {
     window.help = window.help || {};
     var ua = navigator.userAgent;
@@ -150,10 +149,11 @@ import html2canvas from 'html2canvas';
     leftTimeCacul.prototype._showTime = function (endDate, tip, container) {
         var timedate = new Date(endDate);//自定义结束时间 　　
         var now = new Date(); //获取当前时间 　　
-        var date = parseInt(timedate.getTime() - now.getTime()) / 1000; //得出的为秒数； 　 
+        var date = parseInt(timedate.getTime() - now.getTime()) / 1000; //得出的为秒数；
         if (date <= 0) {
             container.innerHTML = "倒计时已经结束";
             clearInterval(this.timeId);
+            return;
         }
         var day = parseInt(date / 60 / 60 / 24);
         var hour = parseInt(date / 60 / 60 % 24);

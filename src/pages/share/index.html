@@ -8,23 +8,27 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>分享赚50</title>
+    <link href="http://static2.test.ximalaya.com/lib/share-buy/last/build/css/common.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="share">
         <div class="top">
             <div class="poster-place">
-                <div class="user-pic">
+                <div class="user-pic control" style="display:none;">
                     <!--用户头像-->
-                    <img src="./image/logo-test.png" alt="用户图片" />
+                    <img src="" alt="用户图片" />
                 </div>
                 <!--用户昵称-->
-                <div class="user-nick">nicknick</div>
-                <div class="qrcode-image">
+                <div class="user-nick control" style="display:none;">nicknick</div>
+                <div class="qrcode-image-wrap control" style="display:none;">
                     <!--二维码图片-->
-                    <img src="./image/qrcode.png" alt="二维码" data-qrurl="这里填充生成二维码的url" />
+                    <div id="qr-image-placeholder" data-qrurl="这里填充生成二维码的url"></div>
+                    <img data-qrurl="这里填充生成二维码的url" id="qr-image" class="qr-image" src="http://fdfs.xmcdn.com/group40/M01/5B/41/wKgJVFrQagiz0nA9AAAFfo7Ic60591.png"
+                        alt="二维码" data-qrurl="这里填充生成二维码的url" />
                 </div>
-                <img class="poster-image" src="./image/share-image.png" alt="海报" />
+                <!--海报图片-->
+                <img class="poster-image" src="http://fdfs.xmcdn.com/group42/M08/96/2E/wKgJ9FrQab_DgcOVAAP7wY32bvU156.png" alt="海报" />
             </div>
         </div>
         <div class="bottom">
@@ -37,15 +41,15 @@
                     元奖励
                 </div>
                 <div class="share-opt-group">
-                    <div class="share-opt-wrap friend">
+                    <div class="share-opt-wrap friend" data-channel="weixinGroup">
                         <div class="share-icon">
-                            <img src="./image/friend_share@2x.png" alt="朋友圈" />
+                            <img src="http://fdfs.xmcdn.com//group40/M09/5B/30/wKgJVFrQaR2BEQrMAAAWIpKHbOk370_web_meduim.png" alt="朋友圈" />
                         </div>
                         <div class="share-desc">朋友圈</div>
                     </div>
-                    <div class="share-opt-wrap weixin">
+                    <div class="share-opt-wrap weixin" data-channel="weixin">
                         <div class="share-icon">
-                            <img src="./image/weixin_share@2x.png" alt="微信" />
+                            <img src="http://fdfs.xmcdn.com//group42/M01/96/23/wKgJ9FrQaTzgCJiOAAAUI3kPv1Y835_web_meduim.png" alt="微信" />
                         </div>
                         <div class="share-desc">微信</div>
                     </div>
@@ -69,7 +73,7 @@
         </div>
         <img class="save-image-cover" src="" alt="保存图片" />
     </div>
+    <script src="http://static2.test.ximalaya.com/lib/share-buy/last/lib.js"></script>
 </body>
-<!-- <script src="http://static2.test.ximalaya.com/lib/common/last/weixin/1.0.0/weixin.js"></script> -->
 
 </html>

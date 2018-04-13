@@ -79,9 +79,9 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
-    // new CleanWebpackPlugin(['build']),
-    new ExtractTextPlugin('css/[name].css'),
-    new CopyWebpackPlugin([{ from: 'src/image', to: 'image' }]),
+    new CleanWebpackPlugin(['build']),
+    new ExtractTextPlugin('css/common.css'),
+    // new CopyWebpackPlugin([{ from: 'src/image', to: 'image' }]),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new ReloadPlugin()

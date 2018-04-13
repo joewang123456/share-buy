@@ -38,5 +38,21 @@
   "dependencies": {
     "expose-loader": "^0.7.5",
     "wx": "0.0.36"
-  }
+  },
+  "combines": {
+    "lib.js": [
+      "build/lib/jquery.js",
+      "build/lib/jquery.qrcode.min.js",
+      "build/lib/html2canvas.js",
+      "build/lib/weixin.js",
+      "build/lib/ya.js",
+      "build/lib/xm_util_toast.js"
+    ]
+  },
+  "output": [
+    "build/css/common.css",
+    "build/image/**",
+    "lib.js",
+    "build/js/**"
+  ]
 }
