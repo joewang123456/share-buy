@@ -1,0 +1,304 @@
+/**
+分享页
+**/
+.share{
+  position: relative;
+  margin:0px;
+  width: 100%;
+  height: 120%;
+  background: #482318;
+  overflow: auto;
+  .top{
+    border: 1px solid transparent;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    .poster-place{
+      position: relative;
+      margin: 7%;
+      text-align: center;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      .poster-image{
+        max-width: 100%;
+      }
+      .user-pic{
+        position: absolute;
+        top: 1.5%;
+        left: 6.3%;
+        width: 11.7%;
+        height: 6.6%;
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .user-nick{
+        position: absolute;
+        top: 1.6%;
+        left: 20%;
+        color: white;
+        font-style: italic;
+        font-size: 12px;
+        // border: 1px solid red;
+      }
+      .qrcode-image{
+        position: absolute;
+        bottom: 16%;
+        right: 9.1%;
+        width: 17.3%;
+        height: 10%;
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  .bottom{
+    position: fixed;
+    background: #ffffff;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    .arrow{
+      position: absolute;
+      top: -9px;
+      left: 0px;
+      right: 0px;
+      height: 10px;
+      background: transparent url(./../image/arrow.png) no-repeat 50% 50%;
+    }
+    .share-banner{
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+      .share-tip{
+        text-align: center;
+        margin: 15px;
+        font-size: 12px;
+        .strong-text{
+          color: red;
+          font-size: 18px;
+        }
+      }
+      .share-opt-group{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5px;
+        .share-opt-wrap{
+          align-items: center;
+          &.weixin{
+            margin-left: 50px;
+          }
+          display: flex;
+          flex-direction: column;
+          .share-icon{
+            width: 50px;
+            height: 50px;
+            img{
+              max-height: 100%;
+              max-width: 100%;
+            }
+          }
+          .share-desc{
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.overlay{
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  .cover{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    opacity: 0.6;
+    filter: opacity(60);
+    background: #000000;
+    z-index: 1;
+  }
+  .content{
+    z-index: 2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding: 40px;
+    z-index: 2;
+    &>img{
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+  .save-image-cover{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    opacity: 0;
+    filter: opacity(0);
+    z-index: 100;
+  }
+}
+
+/**
+分享成功
+**/
+.share-success{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #482318;
+  overflow: hidden;
+  .share-pane{
+    background: #F8D6B2;
+    margin: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .share-success-icon{
+      width: 22.5%;
+      height: 22.5%;
+      margin-top: 11%;
+    }
+    .share-text{
+      margin: 20px 18% 0px 18%;
+      text-align: center;
+      font-size: 13px;
+    }
+    .link-to-detail{
+      background-image: linear-gradient(-136deg, #E0AC74 0%, #D8875B 100%); 
+      border-radius: 100px;
+      color: #482318;
+      font-size: 14px;
+      padding: 6px 21px;
+      display: block;
+      text-decoration: none;
+      margin: 10%;
+    }
+  }
+  .sparator{
+    margin: 20px;
+    border: 1px dotted #68431E;
+  }
+  .attention-rules{
+    margin: 20px;
+    font-family: PingFangSC-Regular;
+    font-size: 13px;
+    color: #d78b62;
+    letter-spacing: 0;
+    line-height: 18px;
+
+    .attention-contents{
+      margin-top: 15px;
+      .attention-item{
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+.share-detail{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  .logo-wrap{
+    &>img{
+      max-width: 100%;
+    }
+  }
+  .sale-info{
+    padding: 30px 15px;
+    .vip-year{
+      font-size: 20px;
+      color: #333333;
+      letter-spacing: 0;
+      line-height: 20px;
+    }
+    .sub-title{
+      font-size: 14px;
+      color: #666666;
+      letter-spacing: 0;
+    }
+    .price-wrap{
+      margin-top: 15px;
+      .sale-price{
+        font-size: 24px;
+        color: #FC5832;
+      }
+      .old-price{
+        margin-left: 10px;
+        font-size: 14px;
+        color: #999999;
+        text-decoration:line-through;
+      }
+    }
+  }
+  .time-in-sale{
+    position: relative;
+    margin:20px 0px;
+    background: url('./../image/sale-in-time-bg.png') no-repeat 0 0;
+    background-size: cover;
+    height: 28px;
+    line-height: 28px;
+    .title{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      bottom: 0px;
+      width: 81px;
+      background: url('./../image/sale-in-time.png') no-repeat 50% 50%;
+      background-size: cover;
+      font-size: 14px;
+      color: #FFF0D2;
+      padding-left: 5px;
+    }
+    .time{
+      margin-left: 85px;
+      font-size: 12px;
+      color: #5A1D0B;
+    }
+  }
+  .people-intro{
+    margin:20px 0px;
+    padding-bottom: 20px;
+    text-align: center;
+    &>img{
+      width: 100%;
+    }
+  }
+  .opt-button-fix{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: white;
+    padding: 10px 15px;
+    .opt-button{
+      font-size: 16px;
+      color: #482318;
+      text-align: center;
+      height: 34px;
+      line-height: 34px;
+      background: url('./../image/button-bg.png') no-repeat;
+      background-size: contain;
+      background-position: 50% 50%;
+    }
+  }
+}
+
