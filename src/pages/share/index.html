@@ -15,17 +15,17 @@
     <div class="share">
         <div class="top">
             <div class="poster-place">
-                <div class="user-pic control" style="display:none;">
+                <div class="user-pic">
                     <!--用户头像-->
                     <img src="" alt="用户图片" />
                 </div>
                 <!--用户昵称-->
-                <div class="user-nick control" style="display:none;">nicknick</div>
+                <div class="user-nick">nicknick</div>
                 <div class="qrcode-image-wrap control" style="display:none;">
                     <!--二维码图片-->
                     <div id="qr-image-placeholder" data-qrurl="这里填充生成二维码的url"></div>
-                    <img data-qrurl="这里填充生成二维码的url" id="qr-image" class="qr-image" src="http://fdfs.xmcdn.com/group40/M01/5B/41/wKgJVFrQagiz0nA9AAAFfo7Ic60591.png"
-                        alt="二维码" data-qrurl="这里填充生成二维码的url" />
+                    <img id="qr-image" class="qr-image" src="http://fdfs.xmcdn.com/group40/M01/5B/41/wKgJVFrQagiz0nA9AAAFfo7Ic60591.png" alt="二维码"
+                    />
                 </div>
                 <!--海报图片-->
                 <img class="poster-image" src="http://fdfs.xmcdn.com/group42/M08/96/2E/wKgJ9FrQab_DgcOVAAP7wY32bvU156.png" alt="海报" />
@@ -34,9 +34,9 @@
         <div class="bottom">
             <div class="arrow"></div>
             <!--站内显示-->
-            <div class="share-banner native">
+            <div class="share-banner native" style="display:none;">
                 <div class="share-tip">
-                    朋友通过你分享的h海报购买会员后，你可以获得
+                    朋友通过你分享的海报购买会员后，你可以获得
                     <span class="strong-text">50</span>
                     元奖励
                 </div>
@@ -56,14 +56,14 @@
                 </div>
             </div>
             <!--站外显示-->
-            <!-- <div class="share-banner weixin">
+            <div class="share-banner weixin" style="display:none;">
                 <div class="share-tip">
                     <p>长按保存图片，发给好友或分享朋友圈，</p>
                     <p>每邀请1位好友购买会员，你将立即获得
                         <span class="strong-text">50</span>元奖励
                     </p>
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
     <div class="overlay">
@@ -73,7 +73,8 @@
         </div>
         <img class="save-image-cover" src="" alt="保存图片" />
     </div>
-    <script src="http://static2.test.ximalaya.com/lib/share-buy/last/lib.js"></script>
+    <script src="http://static2.test.ximalaya.com/lib/share-buy/last/build/lib.js"></script>
+
 </body>
 
 </html>

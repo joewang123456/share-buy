@@ -1,3 +1,5 @@
+// import './../../css/reset.css';
+// import './../../css/common.scss';
 import 'expose-loader?libraryName!./../../lib/help.js';
 $(document).ready(function () {
     //登录判断

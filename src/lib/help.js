@@ -3,8 +3,14 @@
     var ua = navigator.userAgent;
     //环境
     var env = {
-        isInNative: /iting/i.test(ua),
-        isInWeiXin: /MicroMessenger/i.test(ua),
+        isInNative: (() => {
+            const ua = navigator.userAgent;
+            return /iting/i.test(ua);
+        })(),
+        isInWeixin: (() => {
+            const ua = navigator.userAgent;
+            return /MicroMessenger/i.test(ua);
+        })(),
         isInTest: location.origin.indexOf('.test.ximalaya.com') !== -1,
     }
 
@@ -105,13 +111,14 @@
                 processData: false,
                 contentType: false,
             }).done(function (res) {
-                var data
-                if (res.ret == 0) {
-                    data = res.data
-                    resolve(data[0].url)
-                } else {
-                    reject(res)
-                }
+                var data;
+                resolve('http://fdfs.test.ximalaya.com/group1/M00/26/96/wKgDplrQ6jCALi3FAABIX1GM8SE837.png');
+                // if (res.ret == 0) {
+                //     data = res.data
+                //     resolve(data[0].url)
+                // } else {
+                //     reject(res)
+                // }
             }).fail(function (xhr) {
                 reject(xhr)
             })

@@ -28,14 +28,21 @@ module.exports = merge(common, {
       disableDotRule: true,
       // 指明哪些路径映射到哪个html
       rewrites: [
-        { from: /^\/share$/, to: '/build/share.html' },
-        { from: /^\/share-detail$/, to: '/build/share-detail.html' },
-        { from: /^\/share-success$/, to: '/build/share-success.html' }
+        { from: /^\/share$/, to: '/share.html' },
+        { from: /^\/share-detail$/, to: '/share-detail.html' },
+        { from: /^\/share-success$/, to: '/share-success.html' }
       ]
     },
   },
   module: {
     rules: [
+      {
+        test: /\.js$/, //匹配.js文件
+        //排除也就是不转换node_modules下面的.js文件
+        exclude: /(node_modules|bower_components)/,
+        //加载器  webpack2需要loader写完整 不能写babel 要写 bable-loader
+        use: [{ loader: "babel-loader" }]
+      },
       {
         test: /\.(png|jpg|gif)$/,
         use: [
