@@ -1,7 +1,6 @@
-// import './../../css/reset.css';
-// import './../../css/common.scss';
+import './../../css/reset.css';
+import './../../css/common.scss';
 import 'expose-loader?libraryName!./../../lib/help.js';
-import 'expose-loader?libraryName!./../../lib/canvas-to-blob.min.js';
 // var vConsole = new VConsole();
 
 $(document).ready(function () {
@@ -22,7 +21,10 @@ $(document).ready(function () {
     }
 
     //在生成二维码之后，生成海报截图
-    new help.htmlSaveToImage({ scale: 1 }).generateCard(document.getElementsByClassName('poster-place')[0]).then(function (imageUrl) {
+    new help.htmlSaveToImage({
+        useCORS: true,
+        scale: 2
+    }).generateCard(document.getElementsByClassName('poster-place')[0]).then(function (imageUrl) {
         if (help.env.isInNative) {//在站内，分享朋友圈或微信
             $('.share-opt-wrap').on('click', function () {
                 var channel = $(this).data('channel');

@@ -57,6 +57,7 @@
      * @param {*} element 
      */
     htmlSaveToImage.prototype.generateCard = function (element) {
+        console.log(element);
         return this._sequentialize([this._htmlToCanvas, this._canvasToBlob, this._uploadImage], element);
     }
 
@@ -112,13 +113,12 @@
                 contentType: false,
             }).done(function (res) {
                 var data;
-                resolve('http://fdfs.test.ximalaya.com/group1/M00/26/96/wKgDplrQ6jCALi3FAABIX1GM8SE837.png');
-                // if (res.ret == 0) {
-                //     data = res.data
-                //     resolve(data[0].url)
-                // } else {
-                //     reject(res)
-                // }
+                if (res.ret == 0) {
+                    data = res.data
+                    resolve(data[0].url)
+                } else {
+                    reject(res)
+                }
             }).fail(function (xhr) {
                 reject(xhr)
             })
