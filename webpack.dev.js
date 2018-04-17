@@ -28,7 +28,7 @@ module.exports = merge(common, {
                 "/target-local-api": 'http://m.test.ximalaya.com/',
                 "target": "http://m.test.ximalaya.com/",
                 "changeOrigin": true,
-                "cookieDomainRewrite": "ops.test.ximalaya.com"
+                "cookieDomainRewrite": "test.ximalaya.com"
             }
         },
         historyApiFallback: {
@@ -114,7 +114,7 @@ module.exports = merge(common, {
             filename: 'share-success.html'
         }),
         new ExtractTextPlugin('css/common.css'),
-        // new CopyWebpackPlugin([{ from: 'src/image', to: 'image' }]),
+        new CopyWebpackPlugin([{ from: 'src/css/image', to: 'image' }]),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new ReloadPlugin()

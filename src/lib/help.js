@@ -57,7 +57,6 @@
      * @param {*} element 
      */
     htmlSaveToImage.prototype.generateCard = function (element) {
-        console.log(element);
         return this._sequentialize([this._htmlToCanvas, this._canvasToBlob, this._uploadImage], element);
     }
 
@@ -174,9 +173,19 @@
     }
     /*******************结束*************************** */
 
+    var preventDefault = function (event) {
+        event = event || window.event;
+        if (event.preventDefault) {
+            event.preventDefault();
+        } else {
+            event.returnValue = false;
+        }
+    }
+
     help.env = env;
     help.constant = constant;
     help.route = route;
     help.htmlSaveToImage = htmlSaveToImage;
     help.leftTimeCacul = leftTimeCacul;
+    help.preventDefault = preventDefault;
 })(window);

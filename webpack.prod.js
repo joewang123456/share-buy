@@ -142,7 +142,7 @@ module.exports = merge(common, {
         new UglifyJSPlugin(),
         // new ExtractTextPlugin('css/[name].css'),
         new ExtractTextPlugin('css/common.css'),//样式文件打包到common.css中
-        // new CopyWebpackPlugin([{ from: 'src/image', to: 'image' }]),
+        // new CopyWebpackPlugin([{ from: 'src/css/image', to: 'image' }]),
         new CopyWebpackPlugin([{ from: 'src/lib', to: 'lib' }])
     ]
 });
