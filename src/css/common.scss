@@ -6,7 +6,8 @@
   margin:0px;
   padding: 0px;
   width: 100%;
-  height: 120%;
+  height: 140%;
+  // margin-bottom: 40%;
   background: #482318;
   .top{
     border: 1px solid transparent;
@@ -290,6 +291,12 @@
     margin:20px 0px;
     padding-bottom: 20px;
     text-align: center;
+    .image-list{
+      .mage-item{
+        border: 1px solid red;
+        width: 100%;
+      }
+    }
     &>.bg-image{
       width: 100%;
     }

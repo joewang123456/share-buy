@@ -4,11 +4,11 @@
     //环境
     var env = {
         isInNative: (() => {
-            const ua = navigator.userAgent;
+            var ua = navigator.userAgent;
             return /iting/i.test(ua);
         })(),
         isInWeixin: (() => {
-            const ua = navigator.userAgent;
+            var ua = navigator.userAgent;
             return /MicroMessenger/i.test(ua);
         })(),
         isInTest: location.origin.indexOf('.test.ximalaya.com') !== -1,
@@ -66,7 +66,9 @@
      * @param {*} initialParam 
      */
     htmlSaveToImage.prototype._sequentialize = function (promiseFactories, initialParam) {
-        var chain = Promise.resolve(initialParam);
+        var chain = new Promise(function (resolve, reject) {
+            resolve(initialParam);
+        });
         var _this = this;
         return promiseFactories.reduce(function (pre, next) {
             return pre.then(next.bind(_this));
@@ -140,7 +142,7 @@
         } return i;
     }
     //计时器
-    leftTimeCacul.prototype._start = function (endDate, tip, container) {
+    leftTimeCacul.prototype.start = function (endDate, tip, container) {
         var _this = this;
         this.timeId = setInterval(function () {
             try {
@@ -153,7 +155,7 @@
 
     //形如：2016/10/01,10:13:55
     leftTimeCacul.prototype._showTime = function (endDate, tip, container) {
-        var timedate = new Date(endDate);//自定义结束时间 　　
+        var timedate = new Date(Date.parse(endDate.replace(/-/g, "/")));//自定义结束时间 　　
         var now = new Date(); //获取当前时间 　　
         var date = parseInt(timedate.getTime() - now.getTime()) / 1000; //得出的为秒数；
         if (date <= 0) {
