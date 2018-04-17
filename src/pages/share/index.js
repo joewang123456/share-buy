@@ -41,9 +41,9 @@ $(document).ready(function () {
     });
     //站外
     if (!help.env.isInNative) {
+        $('.overlay').show();
         promise.then(function (imageUrl) {
             $('.save-image-cover')[0].src = imageUrl;
-            $('.overlay').show();
         });
     }
 });
