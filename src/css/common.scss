@@ -8,10 +8,10 @@
   width: 100%;
   background: #482318;
   &.in-weixin{
-    padding-bottom: 20%;
+    padding-bottom: 30%;
   }
   &.in-native{
-    padding-bottom: 40%;
+    padding-bottom: 50%;
   }
   .top{
     border: 1px solid transparent;
@@ -90,10 +90,12 @@
       flex-direction: column;
       justify-content: center;
       flex: 1;
+      padding-bottom: 30px;
       .share-tip{
         text-align: center;
         margin: 15px;
         font-size: 12px;
+        color: #333333;
         .strong-text{
           color: red;
           font-size: 18px;
@@ -126,6 +128,20 @@
       }
     }
   }
+  .copy-writer{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    font-size: 12px;
+    color: #999999;
+    text-align: center;
+    z-index: 50;
+    padding: 10px 0px;
+    &>a{
+      text-decoration:underline;
+    }
+  }
   .html5-loading{
     display: none;
     position: fixed;
@@ -149,24 +165,24 @@
     }
   }
   .overlay{
-  display: none;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  z-index: 31;
-  opacity: 0;
-  background: #000000;
-  .save-image-cover{
-    position: absolute;
+    display: none;
+    position: fixed;
     top: 0px;
     left: 0px;
     right: 0px;
     bottom: 0px;
-    z-index: 34;
+    z-index: 31;
+    opacity: 0;
+    background: #000000;
+    .save-image-cover{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      z-index: 34;
+    }
   }
-}
 }
 
 

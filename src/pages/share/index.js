@@ -14,6 +14,8 @@ window.onload = function () {
 
     //站内
     if (help.env.isInNative) {
+        //隐藏分享按钮
+        ya.onShare(false);
         var promise = new help.htmlSaveToImage({
             useCORS: true,
             scale: 2

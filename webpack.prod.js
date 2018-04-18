@@ -7,14 +7,14 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const common = require('./webpack.common.js');
-
+// process.env.PUBLIC_URL = '//s1.xmcdn.com/lib/credit-score-manage/last/build/'  //---线上资源
 module.exports = merge(common, {
     output: {
         pathinfo: true,
         filename: 'js/[name].js',
         chunkFilename: 'js/[name].chunk.js',
         path: path.resolve(__dirname, 'build'),
-        publicPath: '//static2.test.ximalaya.com/source/share-buy/0.1.0/build/'
+        publicPath: '//s1.xmcdn.com/lib/share-buy/last/build/'
     },
     module: {
         rules: [
