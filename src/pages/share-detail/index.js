@@ -3,7 +3,9 @@ import './../../css/common.scss';
 import 'expose-loader?libraryName!./../../lib/help.js';
 $(document).ready(function () {
     //活动计时器
-    new help.leftTimeCacul().start('2018/04/24 23:59:59', '离特惠结束：', document.getElementsByClassName('show-time')[0]);
+    var statrTime = ($('.show-time').data('start') - 0);
+    var endTime = ($('.show-time').data('end') - 0);
+    new help.leftTimeCacul().startCaculate(statrTime, endTime, '离特惠结束：', document.getElementsByClassName('show-time')[0]);
     $('.opt-button').on('click', function (event) {
         var opt = $(this).data('opt');
         if (opt === 'buy') {//购买

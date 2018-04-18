@@ -56,8 +56,42 @@
      * 根据element，生成图片，并且上传
      * @param {*} element 
      */
-    htmlSaveToImage.prototype.generateCard = function (element) {
+    htmlSaveToImage.prototype.generateImageUrl = function (element) {
         return this._sequentialize([this._htmlToCanvas, this._canvasToBlob, this._uploadImage], element);
+    }
+
+    htmlSaveToImage.prototype.generateImage = function (element) {
+        return this._sequentialize([this._htmlToCanvas, this._canvasToImage], element);
+    }
+
+    function scaleCanvas(canvas, width, height) {
+        var w = canvas.width,
+            h = canvas.height;
+        if (width == undefined) {
+            width = w;
+        }
+        if (height == undefined) {
+            height = h;
+        }
+
+        var retCanvas = document.createElement('canvas');
+        var retCtx = retCanvas.getContext('2d');
+        retCanvas.width = width;
+        retCanvas.height = height;
+        retCtx.drawImage(canvas, 0, 0, w, h, 0, 0, width, height);
+        return retCanvas;
+    }
+
+    function getDataURL(canvas, type, width, height) {
+        canvas = scaleCanvas(canvas, width, height);
+        return canvas.toDataURL(type);
+    }
+
+    htmlSaveToImage.prototype._canvasToImage = function (canvas) {
+        var img = getDataURL(canvas, 'png', canvas.width, canvas.height);
+        return new Promise(function (resolve, reject) {
+            resolve(img);
+        });
     }
 
     /**
@@ -142,26 +176,29 @@
         } return i;
     }
     //计时器
-    leftTimeCacul.prototype.start = function (endDate, tip, container) {
+    //startTime,endTime:ms
+    leftTimeCacul.prototype.startCaculate = function (startTime, endTime, tip, container) {
+        var clientInitTime = new Date().getTime();
+        var timeDist = endTime - startTime;
         var _this = this;
         this.timeId = setInterval(function () {
             try {
-                _this._showTime.call(_this, endDate, tip, container);
+                _this._showTime.call(_this, timeDist, clientInitTime, tip, container);
             } catch (e) {
                 clearInterval(this.timeId);
             };
-        }, 500);
+        }, 1000);
     }
 
-    //形如：2016/10/01,10:13:55
-    leftTimeCacul.prototype._showTime = function (endDate, tip, container) {
-        var timedate = new Date(Date.parse(endDate.replace(/-/g, "/")));//自定义结束时间 　　
-        var now = new Date(); //获取当前时间 　　
-        var date = parseInt(timedate.getTime() - now.getTime()) / 1000; //得出的为秒数；
+    leftTimeCacul.prototype._showTime = function (timeDist, clientInitTime, tip, container) {
+        var date = parseInt(timeDist - (new Date().getTime() - clientInitTime)) / 1000; //得出的为秒数；
         if (date <= 0) {
             container.innerHTML = "倒计时已经结束";
             clearInterval(this.timeId);
             return;
+        }
+        if (date !== date) {
+            new Throw();
         }
         var day = parseInt(date / 60 / 60 / 24);
         var hour = parseInt(date / 60 / 60 % 24);

@@ -47,6 +47,7 @@
   },
   "combines": {
     "build/lib.js": [
+      "build/lib/vconsole.min.js",
       "build/lib/jquery.js",
       "build/lib/jquery.qrcode.min.js",
       "build/lib/html2canvas.js",
