@@ -106,4 +106,16 @@ window.onload = function () {
             });
         }
     }
+    
+    //微信内分享
+    if (help.env.isInWeixin) {
+        var shareData = window._shareData;
+        wx.ready(function() {
+        wx.onMenuShareAppMessage(shareData)
+        wx.onMenuShareTimeline(shareData)
+        wx.onMenuShareQQ(shareData)
+        wx.onMenuShareQZone(shareData)
+        wx.onMenuShareWeibo(shareData)
+        })
+    }
 };

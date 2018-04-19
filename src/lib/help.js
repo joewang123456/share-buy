@@ -14,6 +14,39 @@
         isInTest: location.origin.indexOf('.test.ximalaya.com') !== -1,
     }
 
+    if (env.isInWeixin) {
+        var apiList = [
+          'checkJsApi',
+          'onMenuShareTimeline',
+          'onMenuShareAppMessage',
+          'onMenuShareQQ',
+          'onMenuShareQZone',
+          'onMenuShareWeibo',
+        ]
+        getWxConfig(location.href, apiList)
+      }
+
+      
+    function getWxConfig(authUrl, apiList) {
+        var url =
+          '/x-thirdparty-web/weixinJssdk/config?signatureUrl=' +
+          encodeURIComponent(authUrl) +
+          '&thirdpartyId=17'
+        $.ajax({
+          url: url,
+          dataType: 'json',
+          cache: false,
+          success: function(result) {
+            var script = document.createElement('script')
+    
+            result.jsApiList = apiList
+            script.innerHTML = 'wx.config(' + JSON.stringify(result) + ');'
+    
+            document.head.appendChild(script)
+          },
+        })
+      }
+
     //常量
     var constant = {
         tokenLabel: env.isInTest ? '4&_token' : '1&_token',
