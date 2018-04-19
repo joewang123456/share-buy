@@ -1,24 +1,19 @@
 /**
 分享页
 **/
-.share-bg{
-  background: #482318;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-}
 .share{
   position: relative;
   margin:0px;
   padding: 0px;
   width: 100%;
   background: #482318;
-  min-height: 100%;
   &.in-weixin{
-    padding-bottom: 30%;
+    height:0px;
+    padding-bottom: 199.4375%;
   }
   &.in-native{
-    padding-bottom: 50%;
+    height:0px;
+    padding-bottom: 224%;
   }
   .top{
     border: 1px solid transparent;
@@ -38,21 +33,24 @@
       padding: 0px;
       background: transparent;
       height: 0px;
-      padding-bottom: 152.89%;
+      padding-bottom: 149.33333333333332%;
       .poster-image{
         position: absolute;
         left: 0px;
         top: 0px;
+        bottom: 0px;
+        right: 0px;
         background: #482318;
         width: 100%;
         z-index: 11;
       }
       .user-pic{
+        // border: 1px solid red;
         position: absolute;
-        top: 1.45%;
-        left: 6.3%;
-        width: 11.7%;
-        height: 6.6%;
+        top: 1.5625%;
+        left: 6.25%;
+        width: 11.944444444444445%;
+        height: 6.71875%;
         z-index: 12;
         img{
           width: 100%;
@@ -61,18 +59,19 @@
       }
       .user-nick{
         position: absolute;
-        top: 1.6%;
-        left: 20%;
+        top: 1.5625%;
+        left: 20.833333333333334%;
         color: white;
         font-style: italic;
         font-size: 12px;
         z-index: 13;
       }
       .qrcode-image-wrap{
+        // border: 1px solid red;
         position: absolute;
-        bottom: 17.7%;
-        right: 9.1%;
-        width: 17.3%;
+        bottom: 15.9375%;
+        right: 8.888888888888889%;
+        width: 17.5%;
         height: 10%;
         padding: 2px;
         z-index: 20;
@@ -200,34 +199,34 @@
   }
 }
 
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  {
-  .share-bg{
-    .top{
-      .poster-place{
-        padding-bottom: 1172px;
-        .user-pic{
-          top: 1.2%;
-          height: 4.6%;
-        }
-      }
-    }
+// @media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  {
+//   .share-bg{
+//     .top{
+//       .poster-place{
+//         padding-bottom: 1172px;
+//         .user-pic{
+//           top: 1.2%;
+//           height: 4.6%;
+//         }
+//       }
+//     }
 
-  }
-}
-@media only screen and (min-device-width : 1024px)  {
-  .share-bg{
-    .top{
-      .poster-place{
-        padding-bottom: 1564px;
-        .user-pic{
-          top: 1.85%;
-          height: 7.6%;
-        }
-      }
-    }
+//   }
+// }
+// @media only screen and (min-device-width : 1024px)  {
+//   .share-bg{
+//     .top{
+//       .poster-place{
+//         padding-bottom: 1564px;
+//         .user-pic{
+//           top: 1.85%;
+//           height: 7.6%;
+//         }
+//       }
+//     }
 
-  }
-}
+//   }
+// }
 
 
 
