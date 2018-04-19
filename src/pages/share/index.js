@@ -41,6 +41,13 @@ window.onload = function () {
                         xm.util.toast('分享失败!');
                     }
                 });
+            }).catch(function(err){
+                $('.html5-loading').hide();
+                var msg = '分享图片上传失败!';
+                if(typeof err === 'object' && err.msg){
+                    var msg = err.msg;
+                }
+                xm.util.toast(msg);
             });
         });
     }
