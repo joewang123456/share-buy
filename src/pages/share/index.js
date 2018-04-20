@@ -3,6 +3,11 @@ import './../../css/common.scss';
 import 'expose-loader?libraryName!./../../lib/help.js';
 // var vConsole = new VConsole();
 //图片完全加载成功后，再执行逻辑
+
+xmLog('pv.create', {
+    item: '分享赚钱海报页',
+});
+
 window.onload = function () {
     //获取缓存图片
     var cacheImgUrl = $('.poster-image').data('cache-image');
@@ -18,12 +23,29 @@ window.onload = function () {
                     type: 'picture'
                 }, function (res) {
                     if (res.ret === 0) {
+                        //分享成功埋点
+                        xmLog('pv.send','event',{
+                            srcModule: '备用方案',
+                            serviceId: 'share',
+                            item: '423活动页',
+                            shareType: channel
+                        });
                         //分享成功
                         location.href = '/viplistenday/share/poster/success';
                     } else {
                         //分享失败
                         xm.util.toast('分享失败!');
                     }
+                });
+
+                xmLog('pv.send','event',{
+                    srcPage: '423活动页',
+                    srcModule: '分享赚钱海报',
+                    serviceId: 'activityPageClick',
+                    item: 'button',
+                    itemId: channel,
+                    siteType: 'onPage',
+                    srcPageId: location.href,
                 });
             });
         }else{//在站外
@@ -44,7 +66,10 @@ window.onload = function () {
             ya.onShare(false);
             var promise = new help.htmlSaveToImage({
                 useCORS: true,
-                scale: 2
+                scale: 2,
+                backgroundColor:'#482318',
+                scrollX:0,
+                scrollY:0
             }).generateImageUrl(document.getElementsByClassName('poster-place')[0]);
 
             $('.share-opt-wrap').on('click', function () {
@@ -61,6 +86,13 @@ window.onload = function () {
                         type: 'picture'
                     }, function (res) {
                         if (res.ret === 0) {
+                            //分享成功埋点
+                            xmLog('pv.send','event',{
+                                srcModule: '备用方案',
+                                serviceId: 'share',
+                                item: '423活动页',
+                                shareType: channel
+                            });
                             //分享成功
                             location.href = '/viplistenday/share/poster/success';
                         } else {
@@ -95,11 +127,24 @@ window.onload = function () {
                     }
                     xm.util.toast(msg);
                 });
+
+                xmLog('pv.send','event',{
+                    srcPage: '423活动页',
+                    srcModule: '分享赚钱海报',
+                    serviceId: 'activityPageClick',
+                    item: 'button',
+                    itemId: channel,
+                    siteType: 'onPage',
+                    srcPageId: location.href,
+                });
             });
         }else{//站外
             var promise = new help.htmlSaveToImage({
                 useCORS: true,
-                scale: 2
+                scale: 2,
+                backgroundColor:'#482318',
+                scrollX:0,
+                scrollY:0
             }).generateImage(document.getElementsByClassName('poster-place')[0]);
             promise.then(function (imageUrl) {
                 $('.save-image-cover')[0].src = imageUrl;
@@ -116,6 +161,6 @@ window.onload = function () {
         wx.onMenuShareQQ(shareData)
         wx.onMenuShareQZone(shareData)
         wx.onMenuShareWeibo(shareData)
-        })
+        });
     }
 };

@@ -7,6 +7,7 @@
   padding: 0px;
   width: 100%;
   background: #482318;
+  overflow: hidden;
   &.in-weixin{
     height:0px;
     padding-bottom: 199.4375%;
@@ -16,24 +17,24 @@
     padding-bottom: 224%;
   }
   .top{
-    border: 1px solid transparent;
+    border: none;
     display: flex;
     flex: 1;
     justify-content: center;
+    overflow: hidden;
     background: #482318;
     .poster-place{
-      background: #482318;
+      border: none;
+      background:#482318;
       position: relative;
       margin: 7%;
-      width: 84%;
+      width: 86%;
       text-align: center;
-      overflow-x: hidden;
-      overflow-y: hidden;
       z-index: 10;
-      padding: 0px;
-      background: transparent;
+      overflow: hidden;
+      padding-bottom: 149.40799999999999%;
       height: 0px;
-      padding-bottom: 149.33333333333332%;
+      overflow: hidden;
       .poster-image{
         position: absolute;
         left: 0px;
@@ -42,15 +43,16 @@
         right: 0px;
         background: #482318;
         width: 100%;
+        height: 100%;
         z-index: 11;
       }
       .user-pic{
         // border: 1px solid red;
         position: absolute;
-        top: 1.5625%;
-        left: 6.25%;
-        width: 11.944444444444445%;
-        height: 6.71875%;
+        top: 2.3238380809595203%;
+        left: 5.466666666666667%;
+        width: 9.866666666666667%;
+        height: 5.547226386806597%;
         z-index: 12;
         img{
           width: 100%;
@@ -59,8 +61,8 @@
       }
       .user-nick{
         position: absolute;
-        top: 1.5625%;
-        left: 20.833333333333334%;
+        top: 2%;
+        left: 16.833333%;
         color: white;
         font-style: italic;
         font-size: 12px;
@@ -69,11 +71,13 @@
       .qrcode-image-wrap{
         // border: 1px solid red;
         position: absolute;
-        bottom: 15.9375%;
-        right: 8.888888888888889%;
-        width: 17.5%;
-        height: 10%;
-        padding: 2px;
+        top: 77.96101949025487%;
+        right: 9.6%;
+        width: 17.333333333333334%;
+        height: 9.745127436281859%;
+        padding: 0px;
+        background: #fff;
+        border: 1px solid white;
         z-index: 20;
         .qr-image-placeholder{
           opacity: 0;
@@ -82,6 +86,7 @@
         }
         img{
           width: 100%;
+          height: 100%;
         }
       }
     }
@@ -354,8 +359,8 @@
     padding-bottom: 20px;
     text-align: center;
     .image-list{
-      .mage-item{
-        border: 1px solid red;
+      .image-item{
+        // border: 1px solid red;
         width: 100%;
       }
     }
